@@ -76,12 +76,18 @@ const loginController = asyncHandler(async(req,res)=> {
 })
 
 const getMeController = (req,res)=>{
-    res.send('get data')
+    res.status(200).json({
+        id: req.user._id,
+        name: req.user.name,
+        email: req.user.email
+    })
 }
 
 
 const generateToken = (id)=>{
-    return jwt.sign({ id }, process.env.PVT_KEY)
+    return jwt.sign({ id }, process.env.PVT_KEY, {
+        expiresIn: '30d'
+    })
 }
 
 module.exports = {
