@@ -5,7 +5,7 @@ const {setGoal , getGoal, updateGoal, deleteGoal} = require("../controller/goalC
 const router = express.Router()
 
 
-router.post('/', protect, setGoal ).get('/', protect, getGoal)
+router.post('/', protect, setGoal ).get('/', protect,  getGoal)
 
 router.put('/:id', protect, updateGoal).delete('/:id', protect, deleteGoal)
 
